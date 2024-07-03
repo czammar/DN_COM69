@@ -1,6 +1,7 @@
 services:
+
   namenode:
-    image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
+    image: bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8
     container_name: namenode
     volumes:
       - ./hdfs/namenode:/hadoop/dfs/name
@@ -26,9 +27,7 @@ services:
       - "50075:50075"
 
   hive-server:
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    image: czammar02/digitalnao:2.3.2-postgresql-metastore-python3
     container_name: hive-server
     volumes:
       - ./data:/data
